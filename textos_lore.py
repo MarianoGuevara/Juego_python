@@ -64,7 +64,7 @@ def textos_lore_final():
         , 13, (650, 75), 'White')
 
     crear_texto(PANTALLA,  
-        "Desesperadamente buscaba hacer que la gente reconociera que era muy poderoso"
+        "Desesperadamente buscaba hacer que la gente lo adulara"
         , 13, (650, 100), 'White')
 
     crear_texto(PANTALLA,  
@@ -84,7 +84,7 @@ def textos_lore_final():
         , 13, (650, 200), 'White')
 
     crear_texto(PANTALLA,  
-        "pero yo soy yo y tengo que seguir viviendo con ello'"
+        "pero tengo que seguir viviendo con ello'"
         , 13, (650, 225), 'White')
 
     crear_texto(PANTALLA,  

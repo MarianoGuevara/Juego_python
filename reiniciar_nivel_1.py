@@ -9,6 +9,9 @@ def reiniciar_nivel_1():
     '''
     personaje.vidas = 3
     personaje.poderes_disponibles = 4
+    personaje.puntaje = 0
+    personaje.que_hace = 'quieto'
+    personaje.lado_mirando = 'derecha'
     Objeto.reestablecer_posicion(personaje, 7, 440)
 
     Objeto.reestablecer_posicion(lista_coins_lvl1[0], 1065, 20)
