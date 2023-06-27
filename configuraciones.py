@@ -1,8 +1,6 @@
 import pygame
 from constantes import * 
 
-
-
 pygame.init()
 
 PANTALLA = pygame.display.set_mode(tamaño_pantalla)
@@ -15,9 +13,7 @@ imagen_fondo_lvl2 = pygame.transform.scale(imagen_fondo_lvl2, tamaño_pantalla)
 imagen_fondo_lvl3 = pygame.image.load(fondo_noche)
 imagen_fondo_lvl3 = pygame.transform.scale(imagen_fondo_lvl3, tamaño_pantalla)
 
-# timer_imagen = pygame.image.load(timer_ruta)
-# timer_imagen = pygame.transform.scale(timer_imagen, (80,40))
-# fuente_pixel = pygame.font.Font(fuente_ruta, 50)
+
 
 reloj = pygame.time.Clock()
 

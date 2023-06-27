@@ -24,7 +24,7 @@ class Form_Manejador_Lvls (Form):
 
         self.picture_box = PictureBox(self._slave, 250, 80, 750,
                                     500, "interfaz/imagen_interfaz.png")
-        self.btn_lvl1 = Button_Image(self._slave, x,y, 525,130, 185,75, 
+        self.btn_lvl1 = Button_Image(self._slave, x,y, 525,140, 185,75, 
                             "interfaz/base.png", self.btn_play_lvl1, 'No entiendo nada')
         self.btn_lvl2_red = Button_Image(self._slave, x,y, 525,230, 185,75, 
                                         "interfaz/base_roja.png", 
@@ -43,9 +43,9 @@ class Form_Manejador_Lvls (Form):
                                     "interfaz/base.png", self.btn_play_lvl3, 'No entiendo nada')
 
         self.label_volumen = Label(self._slave, 700,450, 40,40, '20%',
-                                    'Comic Sans', 15, 'White', "interfaz/Table.png")
+                                    'Comic Sans', 15, 'Black', "interfaz/Base.png")
         self.slider_volumen = Slider(self._slave, x,y, 480,460, 200,15,
-                                    self.volumen, 'Blue', 'White')
+                                    self.volumen, 'Gray', 'White')
 
         self.lista_widgets.append(self.picture_box)
         self.lista_widgets.append(self.btn_lvl1)
@@ -54,7 +54,6 @@ class Form_Manejador_Lvls (Form):
         self.lista_widgets.append(self.btn_quit)
         self.lista_widgets.append(self.label_volumen)
         self.lista_widgets.append(self.slider_volumen)
-        self.lista_widgets.append(self.btn_lvl3_gray)
 
         self.render()
 
@@ -107,6 +106,7 @@ class Form_Manejador_Lvls (Form):
             self.nivel_actual = 'uno'
             self.flag_play = False
         self.flag_play = True
+
 
 
     def btn_play_lvl2(self):

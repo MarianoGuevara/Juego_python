@@ -23,21 +23,20 @@ class Form_Menu_Principal (Form):
 
 
         self.label_volumen = Label(self._slave, 700,400, 40,40, '20%', 
-                                'Comic Sans', 15, 'White', "interfaz/Table.png")
+                                'Comic Sans', 15, 'Black', "interfaz/base.png")
         self.slider_volumen = Slider(self._slave, x,y, 480,410, 200,15,
-                                    self.volumen, 'Blue', 'White')
+                                    self.volumen, 'Gray', 'White')
 
         self.picture_box = PictureBox(self._slave, 250, 80, 750, 500,
                                     "interfaz/imagen_interfaz.png")
-        self.btn_niveles = Button_Image(self._slave, x,y, 485,190, 285,150,
+        self.btn_niveles = Button_Image(self._slave, x,y, 470,220, 285,150,
                                         "interfaz/base.png", 
                                     self.btn_play_selector_lvls, 'No entiendo nada')
-        self.btn_quit = Button_Image(self._slave, x,y, 575,475,
+        self.btn_quit = Button_Image(self._slave, x,y, 580,465,
                                     50,50, "interfaz/home.png", self.btn_play_quit, 'No entiendo nada')
 
         self.lista_widgets.append(self.picture_box)
         self.lista_widgets.append(self.btn_niveles)
-
         self.lista_widgets.append(self.label_volumen)
         self.lista_widgets.append(self.slider_volumen)
         self.lista_widgets.append(self.btn_quit)

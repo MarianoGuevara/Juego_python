@@ -21,9 +21,9 @@ class Form_pausa (Form):
         self.en_pausa = False
 
         self.label_volumen = Label(self._slave, 700,400, 40,40, '20%', 
-                                'Comic Sans', 15, 'White', "interfaz/Table.png")
+                                'Comic Sans', 15, 'Black', "interfaz/base.png")
         self.slider_volumen = Slider(self._slave, x,y, 480,410,
-                                    200,15, self.volumen, 'Blue', 'White')
+                                    200,15, self.volumen, 'Gray', 'White')
         self.picture_box = PictureBox(self._slave, 250, 80, 750,
                                     500, "interfaz/imagen_interfaz.png")
         self.btn_niveles = Button_Image(self._slave, x,y, 505,210,

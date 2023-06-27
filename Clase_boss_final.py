@@ -11,13 +11,13 @@ class Boss_Final(Personaje):
         return: 
         '''
         super().__init__(imagen, x_inicial, y_inicial)
+
         self.velocidad_animacion = 18
 
         self.lado_mirando = 'izquierda'
         self.que_hace = 'quieto'
 
         self.divisor = 10
-        self.condicion_mover = 1
         self.velocidad = 20
 
         self.activacion = 'desactivado'
@@ -113,12 +113,12 @@ class Boss_Final(Personaje):
         tiempo_pasado_literal = pygame.time.get_ticks()
         tiempo_pasado_segundos = tiempo_pasado_literal // 1000
 
-        if (tiempo_pasado_segundos // self.divisor) == self.condicion_mover:
+        if (tiempo_pasado_segundos % self.divisor) == 0:
             self.que_hace = 'izquierda'
-            self.condicion_mover += 1
 
         self.limitar_movimiento()
         self.ganar_juego(nemesis)
+
 
 
     def hacer_daño_personaje(self, personaje, pantalla):

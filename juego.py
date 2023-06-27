@@ -4,6 +4,8 @@ from interfaz.GUI_form_selector_lvls import *
 from interfaz.GUI_form_menu_principal import *
 from funcionalidades_generales import *
 from modo_debug import *
+from textos_lore import *
+from interfaz.GUI_form_lore import Form_lore
 from interfaz.GUI_form_pausa import *
 from instancias_objetos_lvl1 import *
 from instancias_objetos_lvl2 import *
@@ -20,6 +22,8 @@ form_menu_principal = Form_Menu_Principal(PANTALLA, 0, 0, ANCHO_PANTALLA,
                                         ALTO_PANTALLA, "Black", "Black", 1, True)
 form_pausa = Form_pausa(PANTALLA, 0, 0, ANCHO_PANTALLA, ALTO_PANTALLA, "Black",
                         "Black", 1, True)
+form_lore = Form_lore(PANTALLA, 0, 0, ANCHO_PANTALLA, 
+                    ALTO_PANTALLA, "Black", "Black", 1, True )
 
 
 def pausa():
@@ -39,10 +43,10 @@ def pausa():
 
             form_pausa.update(eventos)
 
-            crear_texto(PANTALLA, 'PAUSA', 35, (605,160))
-            crear_texto(PANTALLA, 'DES-PAUSAR', 15, (605,250))
-            crear_texto(PANTALLA, 'MENU', 15, (605,350))
-            crear_texto(PANTALLA, 'SFX', 10, (605,475))
+            crear_texto(PANTALLA, 'PAUSA', 35, (605,160), 'Black')
+            crear_texto(PANTALLA, 'DES-PAUSAR', 15, (605,250), 'Black')
+            crear_texto(PANTALLA, 'MENU', 15, (605,350), 'Black')
+            crear_texto(PANTALLA, 'SFX', 10, (605,475), 'Black')
 
             if form_pausa.nivel_actual == 'pausa':
                 pass
@@ -177,7 +181,6 @@ def nivel_dos():
                                             PANTALLA, 1250, 1300, 
                                             650, personaje_lvl2.lista_proyectiles)
             key_lvl2.funcionar_key_paso_lvl(personaje_lvl2, PANTALLA, 2, form_manejador_lvls)
-            # generar_contador_tiempo(PANTALLA, timer_imagen, (380, 10), fuente_pixel, (405,8))
 
             mover_personaje_teclas(personaje_lvl2)
             tecla = pygame.key.get_pressed()
@@ -283,8 +286,6 @@ def nivel_tres():
                     boss_final.atacar_boss(x_boss, y_boss)
 
                 if len(boss_final.lista_proyectiles) > 0:
-                    lado_mirando_boss = boss_final.lado_mirando
-                    x_boss = boss_final.forma_fisica.x
                     boss_final.mover_proyectil(lado_mirando_boss, x_boss, 570)
 
             if obtener_modo() == True:
@@ -304,6 +305,73 @@ def nivel_tres():
                 pausa()
             elif personaje_lvl3.nivel_actual == 'menu':
                 personaje_lvl3.nivel_actual = ''
+                mostrar_lore_final()
+
+            pygame.display.flip()
+    except Exception:
+        mostrar_pantalla_error()
+
+
+
+def mostrar_lore_inicio():
+    '''
+    brief: Funcion que se encarga de mostrar la pantalla con la historia 
+    inicial del juego
+    parametros:
+    return:
+    '''
+    try:
+        while True:
+            eventos = pygame.event.get()
+            for evento in eventos:
+                if evento.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            PANTALLA.fill('Black')
+
+            form_lore.update(eventos)
+            crear_texto(PANTALLA, 'JUGAR', 15, (600,440), 'Black')
+
+            textos_lore_inicio()
+
+            if form_lore.jugar == True:
+                form_lore.jugar = False
+                form_lore.menu = False
+                reiniciar_nivel_1()
+                nivel_uno()
+
+
+            pygame.display.flip()
+    except Exception:
+        mostrar_pantalla_error()
+
+
+
+def mostrar_lore_final():
+    '''
+    brief: Funcion que se encarga de ejecutar la pantalla de error en caso
+    de que haya uno
+    parametros:
+    return:
+    '''
+    try:
+        while True:
+            eventos = pygame.event.get()
+            for evento in eventos:
+                if evento.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            PANTALLA.fill('Black')
+
+            form_lore.update(eventos)
+
+            textos_lore_final()
+
+            if form_lore.menu == True:
+                form_lore.menu = False
+                form_lore.jugar = False
                 menu_principal_funcion()
 
             pygame.display.flip()
@@ -331,8 +399,7 @@ def niveles():
                 pass
             elif form_manejador_lvls.nivel_actual == 'uno':
                 form_manejador_lvls.nivel_actual = ''
-                reiniciar_nivel_1()
-                nivel_uno()
+                mostrar_lore_inicio()
             elif form_manejador_lvls.nivel_actual == 'dos':
                 form_manejador_lvls.nivel_actual = ''
                 reiniciar_nivel_2()
@@ -349,9 +416,9 @@ def niveles():
             form_manejador_lvls.update(eventos)
 
 
-            crear_texto(PANTALLA, '1', 30, (620,165))
-            crear_texto(PANTALLA, '2', 30, (620,265))
-            crear_texto(PANTALLA, '3', 30, (620,365))
+            crear_texto(PANTALLA, '1', 30, (620,175), 'Black')
+            crear_texto(PANTALLA, '2', 30, (620,265), 'Black')
+            crear_texto(PANTALLA, '3', 30, (620,365), 'Black')
 
             pygame.display.flip()
     except Exception:
@@ -387,7 +454,8 @@ def menu_principal_funcion():
 
             form_menu_principal.update(eventos)
 
-            crear_texto(PANTALLA, 'NIVELES', 25, (620,260))
+            crear_texto(PANTALLA, 'EL ANTIHEROE', 25, (610,175), 'Black')
+            crear_texto(PANTALLA, 'NIVELES', 25, (610,290), 'Black')
 
             pygame.display.flip()
     except Exception:

@@ -44,6 +44,7 @@ def reiniciar_nivel_3():
     lista_slimes_lvl3.append(slime2)
     
     boss_final.vidas = 3
+    boss_final.lista_proyectiles.clear()
     boss_final.activacion = 'desactivado'
     
     Objeto.reestablecer_posicion(boss_final, 1200, 440)

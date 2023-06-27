@@ -11,7 +11,7 @@ def obtener_fuente(size): # Returns Press-Start-2P in the desired size
 
 
 
-def crear_texto(pantalla, texto, tamaño, posicion):
+def crear_texto(pantalla, texto, tamaño, posicion, color):
     '''
     brief: Crea un texto y lo dibuja en pantalla
     parametros: pantalla: donde se dibujara el texto. texto: el texto 
@@ -19,7 +19,7 @@ def crear_texto(pantalla, texto, tamaño, posicion):
     cual se dibujará
     return:
     '''
-    PLAY_TEXT = obtener_fuente(tamaño).render(texto, True, "Black")
+    PLAY_TEXT = obtener_fuente(tamaño).render(texto, True, color)
     PLAY_RECT = PLAY_TEXT.get_rect(center=posicion)
     pantalla.blit(PLAY_TEXT, PLAY_RECT)
 
