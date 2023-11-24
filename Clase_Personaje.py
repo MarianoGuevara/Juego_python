@@ -2,6 +2,7 @@ from recursos.personaje2.animaciones_personaje import *
 from Clase_bola_energia import *
 from Clase_Objeto import Objeto
 from configuraciones import *
+import time
 
 class Personaje (Objeto):
     def __init__(self, imagen, x_inicial, y_inicial):
@@ -72,7 +73,6 @@ class Personaje (Objeto):
         return:
         '''
         for plataforma in lista_plataforma:
-            self.gestionar_colisiones_piso_plat(plataforma)
 
             if self.rectangulos['bottom'].colliderect(plataforma.rectangulos['top']):
                 self.esta_saltando = False
@@ -107,7 +107,7 @@ class Personaje (Objeto):
                 self.rectangulos['bottom'].bottomright = self.forma_fisica.bottomright
             else:
                 self.esta_saltando = True
-
+            self.gestionar_colisiones_piso_plat(plataforma)
 
 
     def efectuar_daño_personaje(self):
@@ -128,7 +128,7 @@ class Personaje (Objeto):
         return:
         '''
         if self.forma_fisica.y > 800:
-            self.reaparecer_personaje(posicion_inicial_personaje_lvl)
+            self.nivel_actual = "menu"
 
 
 
@@ -264,8 +264,7 @@ class Personaje (Objeto):
             self.vida_a_mostrar = vidas_1
         elif self.vidas < 1:
             efecto_muerte.play()
-            self.reaparecer_personaje(posicion_inicial_personaje_lvl)
-            self.vidas = 3
+            self.nivel_actual = "menu"
         pantalla.blit(self.vida_a_mostrar, ubicacion)
 
 
@@ -320,9 +319,10 @@ class Personaje (Objeto):
         return:
         '''
         for rect in self.rectangulos:
+            self.rectangulos
             self.rectangulos[rect].x = posicion_inicial_personaje_lvl[0]
             self.rectangulos[rect].y = posicion_inicial_personaje_lvl[1]
-            self.vidas = 3
+        self.vidas = 3
 
 
 

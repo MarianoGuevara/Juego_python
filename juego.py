@@ -101,6 +101,7 @@ def nivel_uno():
             Plataforma.dibujar_objeto(lista_plataformas_lvl1, PANTALLA)
             key.funcionar_key_paso_lvl(personaje, PANTALLA, 1, form_manejador_lvls)
 
+
             mover_personaje_teclas(personaje)
             tecla = pygame.key.get_pressed()
             if tecla[pygame.K_SPACE]:

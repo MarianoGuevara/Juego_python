@@ -5,7 +5,7 @@ FPS = 30
 
 tamaño_pantalla = (ANCHO_PANTALLA, ALTO_PANTALLA)
 
-posicion_inicial_personaje_lvl1 = [7, 440]
+posicion_inicial_personaje_lvl1 = [7, 450]
 posicion_inicial_personaje_lvl2 = [10, 55]
 posicion_inicial_personaje_lvl3 = [20, 51]
 
